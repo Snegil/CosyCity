@@ -13,7 +13,7 @@ public class LoadSavePathScript : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        savePath = Application.persistentDataPath + mapFileName + ".txt";
+        savePath = Application.persistentDataPath + "/"+ mapFileName + ".txt";
         Debug.Log(savePath);
     }
 }

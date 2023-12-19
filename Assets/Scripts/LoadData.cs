@@ -7,23 +7,22 @@ using UnityEngine;
 public class LoadData : MonoBehaviour
 {
     LoadSavePathScript savePathScript;
+    WriteData writeData;
     MapData mapData;
 
     // Start is called before the first frame update
     void Awake()
     {
         savePathScript = GetComponent<LoadSavePathScript>();
+        writeData = GetComponent<WriteData>();
         mapData = GetComponent<MapData>();
     }
     private void Start()
     {
-        try
+        if (!File.Exists(savePathScript.SavePath))
         {
-            mapData.AddMapData(File.ReadAllLines(savePathScript.SavePath));
-        }
-        catch (Exception e)
-        {
-            Debug.Log(e);
+            writeData.CreateFile();
+            return;
         }
     }
 }
