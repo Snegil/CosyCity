@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using UnityEngine;
 
 public class LoadWriteData : MonoBehaviour
@@ -24,9 +25,9 @@ public class LoadWriteData : MonoBehaviour
             // Create a file to write to
             using (StreamWriter sw = File.CreateText(savePathScript.SavePath))
             {
-                sw.WriteLine(Application.productName + "ver. " + Application.version);
-                sw.WriteLine("X, Y");
-                sw.WriteLine("16, 16");
+                sw.WriteLine(Application.productName + " ver. " + Application.version);
+                sw.WriteLine("X,Y");
+                sw.WriteLine("16,16");
                 sw.WriteLine();
 
                 int[,] generatedMapInformation = mapData.GenerateMapData(16, 16);
@@ -48,11 +49,14 @@ public class LoadWriteData : MonoBehaviour
 
             string versionNumber = sw.ReadLine();
             sw.ReadLine();
-            string size = sw.ReadLine();
-            string levelData = sw.ReadToEnd();
-            string[] levelArray = levelData.Split(',');
+            string readSize = sw.ReadLine();
+            string[] size = readSize.Split(',');
+
+            string levelData = sw.ReadToEnd().Trim();            
 
             Debug.Log("LEVEL DATA \n" + levelData);
+            Debug.Log("ROWS: " + levelData.Split("\n").Length);
+            mapData.AddMapData(levelData, int.Parse(size[0]), int.Parse(size[1]));
         }
     }
 }

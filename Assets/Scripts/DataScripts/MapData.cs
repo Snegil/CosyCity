@@ -2,15 +2,29 @@ using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class MapData : MonoBehaviour
 {
     int[,] mapData;
 
-    public void AddMapData(string[] mapData)
+    public void AddMapData(string generatedMapData, int xGridSize, int yGridSize)
     {
-        Debug.Log(mapData);
+        mapData ??= new int[xGridSize, yGridSize];        
+
+        string[] splitMapData = generatedMapData.Split(',');
+
+        Debug.Log("X,Y: " + xGridSize + "," + yGridSize);
+
+        for (int i = 0; i < xGridSize; i++)
+        {
+            for (int j = 0; j < yGridSize; j++)
+            {
+                this.mapData[i, j] = int.Parse(splitMapData[j]);
+            }
+            Debug.Log(i);
+        }
     }
     public int[,] GetMapData()
     {
