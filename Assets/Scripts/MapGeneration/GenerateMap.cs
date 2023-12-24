@@ -14,6 +14,8 @@ public class GenerateMap : MonoBehaviour
     }
     public void Generate3DMap(int[,] mapData, int xGridSize, int yGridSize)
     {
+        int[,] mapDataInfo = mapData;
+
 
     }
 }
