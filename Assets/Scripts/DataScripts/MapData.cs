@@ -7,6 +7,9 @@ using UnityEngine;
 
 public class MapData : MonoBehaviour
 {
+    public delegate void MapDataAdded(int[,] mapData, int xSize, int ySize);
+    public event MapDataAdded OnMapDataAdded;
+
     int[,] mapData;
 
     public void AddMapData(string generatedMapData, int xGridSize, int yGridSize)
@@ -25,6 +28,7 @@ public class MapData : MonoBehaviour
             }
             Debug.Log(i);
         }
+        OnMapDataAdded?.Invoke(mapData, xGridSize, yGridSize);
     }
     public int[,] GetMapData()
     {

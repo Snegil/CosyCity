@@ -8,7 +8,11 @@ public class GenerateMap : MonoBehaviour
     [SerializeField]
     MapData mapData;
 
-    public void Generate3DMap(int[] mapData, int xGridSize, int yGridSize)
+    void OnEnable()
+    {
+        mapData.OnMapDataAdded += Generate3DMap;
+    }
+    public void Generate3DMap(int[,] mapData, int xGridSize, int yGridSize)
     {
 
     }
