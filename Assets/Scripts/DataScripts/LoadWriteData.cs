@@ -26,7 +26,7 @@ public class LoadWriteData : MonoBehaviour
             using (StreamWriter sw = File.CreateText(savePathScript.SavePath))
             {
                 sw.WriteLine(Application.productName + " ver. " + Application.version);
-                sw.WriteLine("X,Y");
+                sw.WriteLine("X,Z");
                 sw.WriteLine("16,16");
                 sw.WriteLine();
 
@@ -45,8 +45,6 @@ public class LoadWriteData : MonoBehaviour
         }
         using (StreamReader sw = File.OpenText(savePathScript.SavePath))
         {
-            //mapInformation = File.ReadAllLines(savePathScript.SavePath);
-
             string versionNumber = sw.ReadLine();
             sw.ReadLine();
             string readSize = sw.ReadLine();

@@ -24,15 +24,15 @@ public class MapData : MonoBehaviour
         {
             for (int j = 0; j < yGridSize; j++)
             {
-                this.mapData[i, j] = int.Parse(splitMapData[j]);
+                mapData[i, j] = int.Parse(splitMapData[i + j]);
             }
-            Debug.Log(i);
         }
+
         OnMapDataAdded?.Invoke(mapData, xGridSize, yGridSize);
     }
     public int[,] GetMapData()
     {
-        return this.mapData;
+        return mapData;
     }
 
     // This should only be run, IF map.txt does NOT exist
@@ -48,5 +48,9 @@ public class MapData : MonoBehaviour
             }
         }
         return mapData;
+    }
+    public int GetSpecificMapData(int x, int z)
+    {
+        return mapData[x, z];
     }
 }
