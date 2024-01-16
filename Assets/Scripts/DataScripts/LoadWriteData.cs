@@ -11,6 +11,11 @@ public class LoadWriteData : MonoBehaviour
 
     string[] mapInformation;
 
+    [Space, SerializeField, Header("X Size:")]
+    int xSize;
+    [SerializeField, Header("Z Size:")]
+    int zSize;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -27,10 +32,10 @@ public class LoadWriteData : MonoBehaviour
             {
                 sw.WriteLine(Application.productName + " ver. " + Application.version);
                 sw.WriteLine("X,Z");
-                sw.WriteLine("16,16");
+                sw.WriteLine(xSize + "," + zSize);
                 sw.WriteLine();
 
-                int[,] generatedMapInformation = mapData.GenerateMapData(16, 16);
+                int[,] generatedMapInformation = mapData.GenerateMapData(xSize, zSize);
 
                 for (int i = 0; i < generatedMapInformation.GetLength(0); i++)
                 {
@@ -54,6 +59,10 @@ public class LoadWriteData : MonoBehaviour
 
             Debug.Log("LEVEL DATA \n" + levelData);
             Debug.Log("ROWS: " + levelData.Split("\n").Length);
+            if (levelData == null)
+            {
+                Debug.Log("LEVELDATA IS NULL");
+            }
             mapData.AddMapData(levelData, int.Parse(size[0]), int.Parse(size[1]));
         }
     }

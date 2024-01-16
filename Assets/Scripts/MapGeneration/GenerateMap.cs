@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using System;
 
 public class GenerateMap : MonoBehaviour
 {
@@ -30,7 +31,8 @@ public class GenerateMap : MonoBehaviour
     }
 
     public void Generate3DMap(int[,] mapData, int xGridSize, int yGridSize)
-    {
+    {   
+
         Mesh mesh = new();
 
         List<Vector3> vertices = new();
@@ -40,12 +42,12 @@ public class GenerateMap : MonoBehaviour
         {
             for (int z = 0; z < mapData.GetLength(1); z++)
             {
-                float height = 1;
+                float height = mapData[z, x];
 
-                if (mapData[x, z] < 1)
-                {
-                    height = 0;
-                }
+                //if (mapData[x, z] < 1)
+                //{
+                //    height = 0;
+                //}
 
                 // TOP PLANE
 
