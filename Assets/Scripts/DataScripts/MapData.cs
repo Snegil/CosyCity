@@ -2,6 +2,7 @@ using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -14,17 +15,18 @@ public class MapData : MonoBehaviour
 
     public void AddMapData(string generatedMapData, int xGridSize, int yGridSize)
     {
-        mapData ??= new int[xGridSize, yGridSize];        
+        mapData ??= new int[xGridSize, yGridSize];
 
-        string[] splitMapData = generatedMapData.Split(',');
+        var initialSplitData = generatedMapData.Replace(" ", "").Replace("\n", "").Trim(',').Split(",");
 
         Debug.Log("X,Y: " + xGridSize + "," + yGridSize);
+
 
         for (int i = 0; i < xGridSize; i++)
         {
             for (int j = 0; j < yGridSize; j++)
             {
-                mapData[i, j] = int.Parse(splitMapData[i + j]);
+                mapData[i, j] = int.Parse(initialSplitData[(i * yGridSize) + j]);
             }
         }
 
