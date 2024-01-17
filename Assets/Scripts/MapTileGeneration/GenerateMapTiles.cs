@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.U2D.Aseprite;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -36,7 +35,7 @@ public class GenerateMapTiles : MonoBehaviour
         {
             for (int j = 0; j < ySize; j++)
             {
-                aboveGroundTileMap.SetTile(new Vector3Int(i, j, 0), aboveGroundTiles[mapData[i, j]]);
+                aboveGroundTileMap.SetTile(new Vector3Int(i, j, 0), aboveGroundTiles[Mathf.Clamp(mapData[i, j], 0, aboveGroundTiles.Count - 1)]);
             }
         }
         for (int p = 0; p < xSize; p++)
