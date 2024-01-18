@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e332cd0f22e46ee4990841e8666e875b
+guid: 72a81b5353ab9ac468b88bdb04446428
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,85 +123,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Water
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 320
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9476a2b75944676409dc40474352fc80
-      internalID: 1058823455
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Gravel
+      name: Trees
       rect:
         serializedVersion: 2
         x: 32
         y: 320
         width: 32
         height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bbcb3b5102803964ab817e1272262e08
-      internalID: 2055313813
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Grass
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 320
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1dbf359856a36b34cbc1f14e6af90d41
-      internalID: 421301326
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Dirt
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 320
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 29ce4270517cd6c4faeddc8811394e20
-      internalID: -636174698
+      spriteID: 04c5290de796a9549823e9387963627c
+      internalID: -1778012684
       vertices: []
       indices: 
       edges: []
@@ -209,7 +146,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 4ef557205ee350a4ca55280d0dd1bcaa
+    spriteID: 0c8274cf19525c6419aaef72dd2ef969
     internalID: 0
     vertices: []
     indices: 
@@ -217,10 +154,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Dirt: -636174698
-      Grass: 421301326
-      Gravel: 2055313813
-      Water: 1058823455
+      Trees: -1778012684
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
