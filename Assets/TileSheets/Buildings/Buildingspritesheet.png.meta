@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 72a81b5353ab9ac468b88bdb04446428
+guid: f7c548e56f31c6641a81b7343397f1f4
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,22 +123,43 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Trees
+      name: HouseSouth
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 320
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d2292c553b44b54cb28d3892c9650ae
+      internalID: -1062073872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HouseEast
       rect:
         serializedVersion: 2
         x: 32
         y: 320
         width: 32
         height: 32
-      alignment: 9
-      pivot: {x: 0.5, y: 0.25}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 04c5290de796a9549823e9387963627c
-      internalID: -1778012684
+      spriteID: e5eb0f7bac7691c4e906b2bb85e55574
+      internalID: 658375490
       vertices: []
       indices: 
       edges: []
@@ -146,7 +167,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 0c8274cf19525c6419aaef72dd2ef969
+    spriteID: 1f32cc5709adc04468a266d9d0cbe6a1
     internalID: 0
     vertices: []
     indices: 
@@ -154,7 +175,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Trees: -1778012684
+      HouseEast: 658375490
+      HouseSouth: -1062073872
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
