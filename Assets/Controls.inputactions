@@ -24,6 +24,15 @@
                     "initialStateCheck": true
                 },
                 {
+                    "name": "ResetZoom",
+                    "type": "Button",
+                    "id": "18b9435e-1512-4edc-8f9a-cc2a27f7e32e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "MB",
                     "type": "Button",
                     "id": "ba862509-1220-4e36-8d65-041629d93aee",
@@ -273,6 +282,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "MB",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "260872e2-06fe-431b-b153-7a7eb9bf1372",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ResetZoom",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

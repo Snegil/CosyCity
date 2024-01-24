@@ -15,10 +15,16 @@ public class CameraZoom : MonoBehaviour
     [SerializeField]
     int maxZoom;
 
-
     public void ZoomCamera(InputAction.CallbackContext context)
     {
         pixelPerfect.assetsPPU += (int)context.ReadValue<Vector2>().y;
         pixelPerfect.assetsPPU = Mathf.Clamp(pixelPerfect.assetsPPU, minZoom, maxZoom);
+    }
+    public void ResetZoom(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Started)
+        {
+            pixelPerfect.assetsPPU = 20;
+        }        
     }
 }
