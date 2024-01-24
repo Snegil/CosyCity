@@ -18,6 +18,8 @@ public class GenerateMapTiles : MonoBehaviour
     [SerializeField]
     Tilemap aboveGroundTileMap;
     [SerializeField]
+    Tilemap waterTileMap;
+    [SerializeField]
     Tilemap hellTileMap;
 
     void OnEnable()
@@ -35,7 +37,14 @@ public class GenerateMapTiles : MonoBehaviour
         {
             for (int j = 0; j < ySize; j++)
             {
-                aboveGroundTileMap.SetTile(new Vector3Int(i, j, 0), aboveGroundTiles[Mathf.Clamp(mapData[i, j], 0, aboveGroundTiles.Count - 1)]);
+                if (Mathf.Clamp(mapData[i, j], 0, aboveGroundTiles.Count - 1) != 0)
+                {
+                    aboveGroundTileMap.SetTile(new Vector3Int(i, j, 0), aboveGroundTiles[Mathf.Clamp(mapData[i, j], 0, aboveGroundTiles.Count - 1)]);
+                }
+                else
+                {
+                    waterTileMap.SetTile(new Vector3Int(i, j, 0), aboveGroundTiles[Mathf.Clamp(mapData[i, j], 0, aboveGroundTiles.Count - 1)]);
+                }                
             }
         }
         for (int p = 0; p < xSize; p++)
