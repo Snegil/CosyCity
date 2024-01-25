@@ -4,9 +4,17 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Tilemaps;
+using static MapData;
 
 public class UserClick : MonoBehaviour
 {
+    public delegate void TileChosenByClick(Vector3Int position);
+    public event TileChosenByClick ChosenTileByClick;
+
+    Vector3Int gridPos;
+
+    ChosenTile chosenTile;
+
     [SerializeField]
     MapData mapData;
 
@@ -31,8 +39,14 @@ public class UserClick : MonoBehaviour
 
     private void Start()
     {
+        chosenTile = GetComponent<ChosenTile>();
         mousePosition = GetComponent<MousePosition>();
     }
+    private void Update()
+    {
+        gridPos = tilemaps[tilemapIndex].WorldToCell(mousePosition.WorldPos);
+    }
+    public Vector3Int GridPos { get { return gridPos; } }
     public int TileMapIndex
     {
         get { return tilemapIndex; }
@@ -47,15 +61,11 @@ public class UserClick : MonoBehaviour
     {
         if (context.phase == InputActionPhase.Started)
         {
-            Vector3Int gridPos = tilemaps[tilemapIndex].WorldToCell(mousePosition.WorldPos);
             if (gridPos.x >= 0 && gridPos.x < xSize && gridPos.y >= 0 && gridPos.y < ySize) 
             {
                 for (int i = 0; i < tilemaps.Count; i++)
                 {
-                    if (tilemaps[i].GetTile(gridPos) != null)
-                    {
-                        Debug.Log(tilemaps[i].GetTile(gridPos));
-                    }                    
+                    ChosenTileByClick?.Invoke(gridPos);
                 }
             }
         }

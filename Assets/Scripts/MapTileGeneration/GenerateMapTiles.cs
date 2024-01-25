@@ -47,13 +47,22 @@ public class GenerateMapTiles : MonoBehaviour
                 }                
             }
         }
+
         for (int p = 0; p < xSize; p++)
         {
-            hellTileMap.SetTile(new Vector3Int(p, 0, 0), hellTile);
+            for (int o = 0; o < ySize; o++)
+            {
+                hellTileMap.SetTile(new Vector3Int(p, o, 0), hellTile);
+            }
         }
-        for (int o = 0; o < ySize; o++)
-        {
-            hellTileMap.SetTile(new Vector3Int(0, o, 0), hellTile);
-        }
+
+        //for (int p = 0; p < xSize; p++)
+        //{
+        //    hellTileMap.SetTile(new Vector3Int(p, 0, 0), hellTile);
+        //}
+        //for (int o = 0; o < ySize; o++)
+        //{
+        //    hellTileMap.SetTile(new Vector3Int(0, o, 0), hellTile);
+        //}
     }
 }
