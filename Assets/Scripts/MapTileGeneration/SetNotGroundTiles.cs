@@ -10,6 +10,4 @@ public class SetNotGroundTiles : MonoBehaviour
 
     [SerializeField]
     List<Tilemap> tilemaps = new List<Tilemap>();
-    
-    
 }

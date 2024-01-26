@@ -22,7 +22,7 @@ public class SetOutlineTile : MonoBehaviour
     {
         userClick.ChosenTileByClick -= setOutline;    
     }
-    public void setOutline(Vector3Int position)
+    public void setOutline(Vector3Int position, Tilemap tileMap)
     {
         outlineTilemap.ClearAllTiles();
         outlineTilemap.SetTile(position, outlineTile);
