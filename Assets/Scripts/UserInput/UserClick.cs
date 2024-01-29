@@ -8,7 +8,7 @@ using static MapData;
 
 public class UserClick : MonoBehaviour
 {
-    public delegate void TileChosenByClick(Vector3Int position, Tilemap tileMap);
+    public delegate void TileChosenByClick(Vector3Int position, Tilemap tileMap, bool clear);
     public event TileChosenByClick ChosenTileByClick;
 
     Vector3Int gridPos;
@@ -45,6 +45,18 @@ public class UserClick : MonoBehaviour
     private void Update()
     {
         gridPos = tilemaps[tilemapIndex].WorldToCell(mousePosition.WorldPos);
+
+        if (gridPos.x >= 0 && gridPos.x < xSize && gridPos.y >= 0 && gridPos.y < ySize)
+        {
+            for (int i = 0; i < tilemaps.Count; i++)
+            {
+                ChosenTileByClick?.Invoke(gridPos, tilemaps[tilemapIndex], false);
+            }
+        }
+        else
+        {
+            ChosenTileByClick?.Invoke(gridPos, tilemaps[tilemapIndex], true);
+        }
     }
     public Vector3Int GridPos { get { return gridPos; } }
     public int TileMapIndex
@@ -65,7 +77,7 @@ public class UserClick : MonoBehaviour
             {
                 for (int i = 0; i < tilemaps.Count; i++)
                 {
-                    ChosenTileByClick?.Invoke(gridPos, tilemaps[tilemapIndex]);
+                    ChosenTileByClick?.Invoke(gridPos, tilemaps[tilemapIndex], false);
                 }
             }
         }

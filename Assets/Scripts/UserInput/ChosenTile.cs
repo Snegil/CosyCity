@@ -21,7 +21,7 @@ public class ChosenTile : MonoBehaviour
         userClick.ChosenTileByClick -= AddChosenTile;
     }
 
-    void AddChosenTile(Vector3Int position, Tilemap tilemap)
+    void AddChosenTile(Vector3Int position, Tilemap tilemap, bool clear)
     {
         Tilechosen = position;
     }
