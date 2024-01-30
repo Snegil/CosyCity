@@ -123,7 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: HouseSouthWest
+      name: BuildingSW
       rect:
         serializedVersion: 2
         x: 0
@@ -131,20 +131,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7d2292c553b44b54cb28d3892c9650ae
-      internalID: -1062073872
+      spriteID: 07de78cf1c8a90e41a34904ad3b2819f
+      internalID: 9716945
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HouseSouthEast
+      name: BuildingSE
       rect:
         serializedVersion: 2
         x: 32
@@ -152,41 +152,41 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e5eb0f7bac7691c4e906b2bb85e55574
-      internalID: 658375490
+      spriteID: 07c9df3d7072a0b4d99789a5b6f160fa
+      internalID: -778059211
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HouseNorthWest
+      name: BuildingNW
       rect:
         serializedVersion: 2
-        x: 64
+        x: 63
         y: 320
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 266cf94045bed7f43ae04d779c1cc369
-      internalID: 1331765176
+      spriteID: 2a2ab09a9115edc46857796e5dc24c23
+      internalID: -1595542888
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HouseNorthEast
+      name: BuildingNE
       rect:
         serializedVersion: 2
         x: 96
@@ -194,14 +194,14 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 125de2bd74ea1a540a22575252d42664
-      internalID: -284979713
+      spriteID: a140146304694e7468e13a9c2ee99ab6
+      internalID: 155848862
       vertices: []
       indices: 
       edges: []
@@ -217,10 +217,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      HouseNorthEast: -284979713
-      HouseNorthWest: 1331765176
-      HouseSouthEast: 658375490
-      HouseSouthWest: -1062073872
+      BuildingNE: 155848862
+      BuildingNW: -1595542888
+      BuildingSE: -778059211
+      BuildingSW: 9716945
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

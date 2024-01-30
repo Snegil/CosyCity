@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Tilemaps;
@@ -54,7 +53,7 @@ public class UserClick : MonoBehaviour
 
         if (gridPos.x >= 0 && gridPos.x < xSize && gridPos.y >= 0 && gridPos.y < ySize)
         {
-            if (!tilemaps[0].GetTile(gridPos) && !tilemaps[1].GetTile(GridPos))
+            if (tilemaps[0].GetTile(gridPos) == null)
             {
                 ChosenTileByClick?.Invoke(gridPos, tilemaps[tilemapIndex], tiles[tileIndex], false);
             }
