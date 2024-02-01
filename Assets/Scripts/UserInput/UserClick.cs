@@ -10,8 +10,6 @@ public class UserClick : MonoBehaviour
 {
     public delegate void TileChosenByClick(Vector3Int position, Tilemap tileMap, Tile tile, bool clear);
     public event TileChosenByClick ChosenTileByClick;
-    public delegate void RemoveTileChosenByClick(Vector3Int position, List<Tilemap> tileMap);
-    public event RemoveTileChosenByClick removeChosenTileByClick;
     public delegate void OutlineTileEvent(Vector3Int position, Tilemap tileMap, Tile tile, bool clear);
     public event OutlineTileEvent OutlineTiles;
 
@@ -61,22 +59,21 @@ public class UserClick : MonoBehaviour
 
     private void Update()
     {
-        gridPos = tilemaps[0].WorldToCell(mousePosition.WorldPos);
+        gridPos = tilemaps[0].WorldToCell(mousePosition.WorldPos);        
+    }
 
+    public void UserClicked(InputAction.CallbackContext context)
+    {
         if (gridPos.x >= 0 && gridPos.x < xSize && gridPos.y >= 0 && gridPos.y < ySize)
-        {
-            if (tilemaps[0].GetTile(gridPos) == null && tilemaps[1].GetTile(gridPos) == null && tilemaps[2].GetTile(gridPos) == null)
-            {
-                OutlineTiles?.Invoke(gridPos, tilemaps[0], tiles[0], false);
-                ChosenTileByClick?.Invoke(gridPos, tilemaps[tilemapIndex], tiles[tileIndex], false);
-            }
+        {            
+            OutlineTiles?.Invoke(gridPos, tilemaps[0], tiles[0], false);
+            ChosenTileByClick?.Invoke(gridPos, tilemaps[tilemapIndex], tiles[tileIndex], false);
         }
         else
         {
             OutlineTiles?.Invoke(gridPos, tilemaps[0], tiles[0], true);
         }
     }
-
 
     public Vector3Int GridPos { get { return gridPos; } }
 

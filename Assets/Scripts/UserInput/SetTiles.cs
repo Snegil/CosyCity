@@ -6,9 +6,6 @@ using UnityEngine.Tilemaps;
 public class SetTiles : MonoBehaviour
 {
     [SerializeField]
-    ToggleableModes toggleModes;
-
-    [SerializeField]
     UserClick userClick;
 
     Vector3Int position;
