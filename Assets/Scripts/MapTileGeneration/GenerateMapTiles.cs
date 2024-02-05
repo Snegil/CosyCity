@@ -13,12 +13,15 @@ public class GenerateMapTiles : MonoBehaviour
     List<Tile> aboveGroundTiles = new List<Tile>();
     [SerializeField]
     Tile hellTile;
-
+    [SerializeField]
+    RuleTile waterRuleTile;
 
     [SerializeField]
     Tilemap aboveGroundTileMap;
     [SerializeField]
     Tilemap waterTileMap;
+    [SerializeField]
+    Tilemap rockTileMap;
     [SerializeField]
     Tilemap hellTileMap;
 
@@ -37,14 +40,19 @@ public class GenerateMapTiles : MonoBehaviour
         {
             for (int j = 0; j < ySize; j++)
             {
-                if (Mathf.Clamp(mapData[i, j], 0, aboveGroundTiles.Count - 1) != 0)
+                if (Mathf.Clamp(mapData[i, j], 0, aboveGroundTiles.Count - 1) == 0)
                 {
-                    aboveGroundTileMap.SetTile(new Vector3Int(i, j, 0), aboveGroundTiles[Mathf.Clamp(mapData[i, j], 0, aboveGroundTiles.Count - 1)]);
+                    waterTileMap.SetTile(new Vector3Int(i, j, 0), waterRuleTile);
+                }
+                else if (Mathf.Clamp(mapData[i, j], 0, aboveGroundTiles.Count - 1) == 2)
+                {
+                    rockTileMap.SetTile(new Vector3Int(i, j, 0), aboveGroundTiles[Mathf.Clamp(mapData[i, j], 0, aboveGroundTiles.Count - 1)]);
                 }
                 else
                 {
-                    waterTileMap.SetTile(new Vector3Int(i, j, 0), aboveGroundTiles[Mathf.Clamp(mapData[i, j], 0, aboveGroundTiles.Count - 1)]);
-                }                
+                    aboveGroundTileMap.SetTile(new Vector3Int(i, j, 0), aboveGroundTiles[Mathf.Clamp(mapData[i, j], 0, aboveGroundTiles.Count - 1)]);
+                }
+                
             }
         }
 
