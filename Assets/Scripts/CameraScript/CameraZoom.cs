@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
 using UnityEngine.InputSystem;
@@ -14,11 +15,37 @@ public class CameraZoom : MonoBehaviour
     int minZoom;
     [SerializeField]
     int maxZoom;
+    [SerializeField]
+    int zoomSpeed;
 
+    [SerializeField]
+    bool zoomBool = false;
+
+    void Update()
+    {
+        if (zoomBool)
+        {
+            pixelPerfect.assetsPPU += zoomSpeed;
+            pixelPerfect.assetsPPU = Mathf.Clamp(pixelPerfect.assetsPPU, minZoom, maxZoom);
+        }
+    }
     public void ZoomCamera(InputAction.CallbackContext context)
     {
-        pixelPerfect.assetsPPU += (int)context.ReadValue<Vector2>().y;
-        pixelPerfect.assetsPPU = Mathf.Clamp(pixelPerfect.assetsPPU, minZoom, maxZoom);
+        Debug.Log("BUTTON PRESSED");
+        zoomSpeed = (int)context.ReadValue<Vector2>().y;
+        Debug.Log(zoomSpeed);
+        if (context.phase == InputActionPhase.Started)
+        {
+            Debug.Log("TROO");
+            zoomBool = true;
+        }
+        if (context.phase == InputActionPhase.Canceled)
+        { 
+            zoomBool = false;
+            Debug.Log("NOT TROO");
+        }
+        //pixelPerfect.assetsPPU += (int)context.ReadValue<Vector2>().y;
+        //pixelPerfect.assetsPPU = Mathf.Clamp(pixelPerfect.assetsPPU, minZoom, maxZoom);
     }
     public void ResetZoom(InputAction.CallbackContext context)
     {

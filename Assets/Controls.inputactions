@@ -284,6 +284,39 @@
                     "isPartOfComposite": true
                 },
                 {
+                    "name": "R F",
+                    "id": "591370c6-8127-4ea8-a328-b317cc518290",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Zoom",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "767b90c5-9eec-4ed3-b646-9bf874772c8e",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Zoom",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "e3c7eb9b-c838-4223-a021-0c9ad7793e7f",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Zoom",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
                     "name": "",
                     "id": "809bfba7-fc0b-47b9-ab17-5034692f25bc",
                     "path": "<Mouse>/leftButton",
