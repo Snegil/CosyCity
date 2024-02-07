@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
 using UnityEngine.InputSystem;
@@ -20,29 +21,38 @@ public class CameraZoom : MonoBehaviour
 
     [SerializeField]
     bool zoomBool = false;
+    [SerializeField]
+    float speedToZoom;
+    float setSpeedToZoom;
 
+    void Start()
+    {
+        setSpeedToZoom = speedToZoom;
+    }
     void Update()
     {
-        if (zoomBool)
+        if (speedToZoom >= 0)
+        {
+            speedToZoom -= Time.deltaTime;
+        }        
+        if (zoomBool && speedToZoom <= 0)
         {
             pixelPerfect.assetsPPU += zoomSpeed;
             pixelPerfect.assetsPPU = Mathf.Clamp(pixelPerfect.assetsPPU, minZoom, maxZoom);
+            speedToZoom = setSpeedToZoom;
         }
     }
     public void ZoomCamera(InputAction.CallbackContext context)
     {
-        Debug.Log("BUTTON PRESSED");
         zoomSpeed = (int)context.ReadValue<Vector2>().y;
         Debug.Log(zoomSpeed);
         if (context.phase == InputActionPhase.Started)
         {
-            Debug.Log("TROO");
             zoomBool = true;
         }
         if (context.phase == InputActionPhase.Canceled)
         { 
             zoomBool = false;
-            Debug.Log("NOT TROO");
         }
         //pixelPerfect.assetsPPU += (int)context.ReadValue<Vector2>().y;
         //pixelPerfect.assetsPPU = Mathf.Clamp(pixelPerfect.assetsPPU, minZoom, maxZoom);

@@ -59,13 +59,9 @@ public class UserClick : MonoBehaviour
 
     private void Update()
     {
-        gridPos = tilemaps[0].WorldToCell(mousePosition.WorldPos);        
-    }
-
-    public void UserClicked(InputAction.CallbackContext context)
-    {
+        gridPos = tilemaps[0].WorldToCell(mousePosition.WorldPos);
         if (gridPos.x >= 0 && gridPos.x < xSize && gridPos.y >= 0 && gridPos.y < ySize)
-        {            
+        {
             OutlineTiles?.Invoke(gridPos, tilemaps[0], tiles[0], false);
             ChosenTileByClick?.Invoke(gridPos, tilemaps[tilemapIndex], tiles[tileIndex], false);
         }
@@ -73,6 +69,11 @@ public class UserClick : MonoBehaviour
         {
             OutlineTiles?.Invoke(gridPos, tilemaps[0], tiles[0], true);
         }
+    }
+
+    public void UserClicked(InputAction.CallbackContext context)
+    {
+        
     }
 
     public Vector3Int GridPos { get { return gridPos; } }
