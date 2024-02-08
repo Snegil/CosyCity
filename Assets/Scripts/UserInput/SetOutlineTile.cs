@@ -16,13 +16,13 @@ public class SetOutlineTile : MonoBehaviour
 
     void OnEnable()
     {
-        userClick.OutlineTiles += setOutline;   
+        userClick.OutlineTiles += SetOutline;   
     }
     void OnDisable()
     {
-        userClick.OutlineTiles -= setOutline;    
+        userClick.OutlineTiles -= SetOutline;    
     }
-    public void setOutline(Vector3Int position, Tilemap tileMap, Tile tile, bool clear)
+    public void SetOutline(Vector3Int position, Tilemap tileMap, bool clear)
     {
         if (!clear)
         {

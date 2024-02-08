@@ -10,7 +10,7 @@ public class GenerateMapTiles : MonoBehaviour
     MapData mapData;
 
     [SerializeField]
-    List<Tile> aboveGroundTiles = new List<Tile>();
+    List<Tile> aboveGroundTiles = new();
     [SerializeField]
     Tile hellTile;
     [SerializeField]

@@ -10,7 +10,6 @@ public class SetTiles : MonoBehaviour
 
     Vector3Int position;
     Tilemap tileMap;
-    Tile tile;
     bool clear;
 
     bool hasData;
@@ -24,11 +23,10 @@ public class SetTiles : MonoBehaviour
         userClick.ChosenTileByClick -= SetTileInformation;
     }
 
-    private void SetTileInformation(Vector3Int position, Tilemap tileMap, Tile tile, bool clear)
+    private void SetTileInformation(Vector3Int position, Tilemap tileMap, bool clear)
     {
         this.position = position;
         this.tileMap = tileMap;
-        this.tile = tile;
         this.clear = clear;
         hasData = true;
     }
@@ -39,7 +37,7 @@ public class SetTiles : MonoBehaviour
         {
             if (InputActionPhase.Started == context.phase && clear == false)
             {
-                tileMap.SetTile(position, tile);
+                //tileMap.SetTile(position, tile);
             }
             if (InputActionPhase.Started == context.phase && clear == true)
             {

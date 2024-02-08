@@ -45,7 +45,6 @@ public class CameraZoom : MonoBehaviour
     public void ZoomCamera(InputAction.CallbackContext context)
     {
         zoomSpeed = (int)context.ReadValue<Vector2>().y;
-        Debug.Log(zoomSpeed);
         if (context.phase == InputActionPhase.Started)
         {
             zoomBool = true;

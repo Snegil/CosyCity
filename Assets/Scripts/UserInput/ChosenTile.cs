@@ -10,7 +10,7 @@ public class ChosenTile : MonoBehaviour
     public event TileChosen ChosenTileEvent;
 
     [SerializeField]
-    List<Tile> tiles = new List<Tile>();
+    List<Tile> tiles = new();
 
     [SerializeField]
     int tileIndex;
@@ -35,5 +35,6 @@ public class ChosenTile : MonoBehaviour
             return;
         }
         tileIndex += value;
+        ChosenTileEvent?.Invoke();
     }
 }
